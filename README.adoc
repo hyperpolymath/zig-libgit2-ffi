@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+= zig-libgit2-ffi
+
+Zig FFI bindings for libgit2 - direct git repository access without subprocess calls.
+
+== Requirements
+
+.Fedora
+[source,bash]
+sudo dnf install libgit2-devel
+
+== Building
+
+[source,bash]
+zig build
+
+== Usage
+
+[source,zig]
+----
+const git = @import("zig-libgit2-ffi");
+
+var repo = try git.Repository.open("/path/to/repo");
+defer repo.close();
+
+if (try repo.isClean()) {
+    std.debug.print("Working directory is clean\n", .{});
+}
+----
+
+== License
+
+AGPL-3.0-or-later
