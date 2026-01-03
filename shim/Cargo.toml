@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+[package]
+name = "git2-shim"
+version = "0.1.0"
+edition = "2021"
+license = "AGPL-3.0-or-later"
+description = "Rust shim exposing libgit2 via C ABI"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+git2 = "0.19"
+libc = "0.2"
